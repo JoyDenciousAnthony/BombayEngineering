@@ -1,9 +1,21 @@
 import React from 'react'
+import { useContext } from 'react';
+import { userPageContext } from '../../Store/MainStore';
+import { useEffect } from 'react';
+import AppLayout from '../../Compoment/Layout/AppLayout';
+
 
 export default function AppAdmin() {
+
+    const [PageData,setPageData]=useContext(userPageContext)
+
+    useEffect (()=>{
+      setPageData({...PageData,Page:'Admin'})
+    },[PageData,setPageData]);
+  
   return (
     <div>
-      Admin
+         <AppLayout></AppLayout>
     </div>
   )
 }
