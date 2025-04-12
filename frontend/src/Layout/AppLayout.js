@@ -9,9 +9,12 @@ import LayersIcon from '@mui/icons-material/Layers';
 import { Menu, ChevronLeft, Brightness4, Brightness7 } from '@mui/icons-material'; // <-- Added these imports
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { PageContainer } from '@toolpad/core/PageContainer';
+import AddUserForm from '../Compoment/AddUserForm';
+import WorkForm from '../Compoment/WorkForm';
 
 const NAVIGATION = [
-  { title: 'Dashboard', icon: <DashboardIcon />, segment: 'dashboard' },
+  // { title: 'Dashboard', icon: <DashboardIcon />, segment: 'dashboard' },
+  { title: 'Dashboard', icon: <DashboardIcon />, segment: '' },
   { title: 'Orders', icon: <ShoppingCartIcon />, segment: 'orders' },
   { title: 'Reports', icon: <BarChartIcon />, segment: 'reports' },
   { title: 'Sales', icon: <DescriptionIcon />, segment: 'sales' },
@@ -46,11 +49,11 @@ function useDemoRouter(initialPath) {
 function DashboardContent({ segment }) {
   switch (segment) {
     case 'dashboard':
-      return <Typography variant="h6">Reports dash</Typography>;
-    case 'orders':
-      return <Typography variant="h6">Orders Section</Typography>;
-    case 'reports':
       return <Typography variant="h6">Reports Section</Typography>;
+    case 'orders':
+      return <WorkForm></WorkForm>;
+    case 'reports':
+      return <div>Reports Section</div>;
     case 'sales':
       return <Typography variant="h6">Sales Section</Typography>;
     case 'traffic':
@@ -58,11 +61,11 @@ function DashboardContent({ segment }) {
     case 'integrations':
       return <Typography variant="h6">Integrations Settings</Typography>;
     default:
-      return <Typography variant="h6">Select a section from the sidebar.</Typography>;
+      return <AddUserForm></AddUserForm>;
   }
 }
 
-export default function HeaderLayout(props) {
+export default function AppLayot(props) {
   const { window } = props;
   const [selectedSegment, setSelectedSegment] = React.useState('dashboard');
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');

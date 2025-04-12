@@ -2,7 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { userPageContext } from '../../Store/MainStore';
 import { useEffect } from 'react';
-import AppLayout from '../../Compoment/Layout/AppLayout';
+import AppLayout from '../../Layout/AppLayout';
 
 
 export default function AppAdmin() {
